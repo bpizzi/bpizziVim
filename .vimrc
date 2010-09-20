@@ -93,9 +93,9 @@ set showmatch     " set show matching parenthesis
 set smarttab      " insert tabs on the start of a line according to
                   "    shiftwidth, not tabstop
 
-set history = 1000             						" remember more commands and search history
-set undolevels = 1000      	   						" use many muchos levels of undo
-set wildignore = *.swp,*.bak,*.pyc,*.class 			" 
+set history=1000             						" remember more commands and search history
+set undolevels=1000      	   						" use many muchos levels of undo
+set wildignore=*.swp,*.bak,*.pyc,*.class 			" 
 set title                							" change the terminal's title
 
 " set filetype stuff to on
@@ -123,6 +123,15 @@ set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 " no toolbars
 set guioptions=ac
 
+if !has("gui_running") 
+	set t_Co=256
+endif
+if has("win32")
+	set guifont=Consolas:h9
+endif
+if has("gui_running")
+	set lines=999 columns=999
+endif
 colorscheme xoria256
 
 """""""""""""""""""""""""""""""
