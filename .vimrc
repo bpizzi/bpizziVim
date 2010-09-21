@@ -165,7 +165,7 @@ noremap <silent> ,cj :wincmd j<cr>:close<cr>
 noremap <silent> ,ck :wincmd k<cr>:close<cr>
 noremap <silent> ,ch :wincmd h<cr>:close<cr>
 noremap <silent> ,cl :wincmd l<cr>:close<cr>
-noremap <silent> ,cc :close<cr>
+noremap <silent> ,cw :close<cr>
 
 " Bouger une fenêtre 
 noremap <silent> ,ml <C-W>L
