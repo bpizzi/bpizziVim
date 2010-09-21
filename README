@@ -1,3 +1,0 @@
-This is my vim config.
-
-Do not forget to generate helptags (:helptags .vim/bundle/command-t/doc)
