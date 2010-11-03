@@ -230,3 +230,6 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1 
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1 
+
+"Configuration de autoclosetag
+au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
