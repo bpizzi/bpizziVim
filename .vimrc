@@ -174,12 +174,13 @@ noremap <silent> ,mh <C-W>H
 noremap <silent> ,mj <C-W>J
 
 " Echanger buffer courant avec l'alternate
-nmap <silent> ,a :b#<cr>
+nmap <silent> <leader>a :b#<cr>
 
 " Parcourir les buffers avec ,b puis tab
 set wildchar=<Tab> wildmenu wildmode=full
 set wildcharm=<C-Z>
-nmap <silent> ,b :b <space>
+nmap <silent> <leader>b :buffers<cr>:b<space>
+
 
 "indentation du document et retour du curseur à sa position avant indentation,
 "avec ,=
@@ -216,9 +217,9 @@ nmap <silent> <leader>d "_d
 vmap <silent> <leader>d "_d
 
 " Quick alignment of text
-nmap <leader>al :left<CR>
-nmap <leader>ar :right<CR>
-nmap <leader>ac :center<CR>
+" map <leader>al :left<CR>
+" nmap <leader>ar :right<CR>
+" nmap <leader>ac :center<CR>
 
 " Commencer à scroller dès qu'il reste 3 lignes (en haut et en bas)
 set scrolloff=3
