@@ -5,9 +5,9 @@ let mapleader=","
 
 
 " GESTION DES PLUGINS {{{
-	runtime! autoload/pathogen.vim
-	silent! call pathogen#runtime_append_all_bundles()
-    silent! call pathogen#helptags()
+runtime! autoload/pathogen.vim
+silent! call pathogen#runtime_append_all_bundles()
+silent! call pathogen#helptags()
 " }}}
 
 
@@ -24,9 +24,9 @@ set virtualedit=all
 set cpoptions+=ces$
 
 "Enregistrer la session avec <F2>
-map <F2> :mksession! ~/vim_session <cr>
+"map <F2> :mksession! ~/vim_session <cr>
 "Rappeler la session avec <F3>
-map <F3> :source ~/vim_session <cr>
+"map <F3> :source ~/vim_session <cr>
 
 
 
@@ -89,9 +89,9 @@ set tabstop=4     " a tab is four spaces
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 
 set showmatch     " set show matching parenthesis
-                  "    case-sensitive otherwise
+"    case-sensitive otherwise
 set smarttab      " insert tabs on the start of a line according to
-                  "    shiftwidth, not tabstop
+"    shiftwidth, not tabstop
 
 set history=1000             						" remember more commands and search history
 set undolevels=1000      	   						" use many muchos levels of undo
@@ -223,3 +223,10 @@ vmap <silent> <leader>d "_d
 
 " Commencer à scroller dès qu'il reste 3 lignes (en haut et en bas)
 set scrolloff=3
+
+
+"Configuration de minibufexplorer
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1 
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1 
