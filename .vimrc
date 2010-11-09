@@ -74,11 +74,6 @@ set smartcase     " ignore case if search pattern is all lowercase,
 
 " Toggle paste Mode
 nmap <silent> ,n :set invhls<CR>:set hls?<CR>
-" Set filetype stuff to on
-filetype on
-filetype plugin on
-filetype indent on
-syntax on
 
 " Activation omnicomplete et paramétrage pour comportement IDE-like
 set ofu=syntaxcomplete#Complete                                    
@@ -102,6 +97,7 @@ set title                							" change the terminal's title
 filetype on
 filetype plugin on
 filetype indent on
+syntax on
 
 set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
 set ch=2
@@ -235,5 +231,12 @@ let g:miniBufExplModSelTarget = 1
 au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
 
 "configuration de ctags
-set tags=tags;/ 
+set tags=tags,tags-sf148;/ 
 nmap <F8> :TlistToggle<CR>
+
+"Php omni completion
+au FileType php set omnifunc=phpcomplete#CompletePHP
+
+"Quelques raccourcis pour symfony
+nmap <F9> :! php symfony cc<CR>
+nmap <F10> :! php symfony doctrine:build --all --no-confirmation<CR>
