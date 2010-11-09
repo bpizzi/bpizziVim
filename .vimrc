@@ -233,3 +233,7 @@ let g:miniBufExplModSelTarget = 1
 
 "Configuration de autoclosetag
 au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
+
+"configuration de ctags
+set tags=tags;/ 
+nmap <F8> :TlistToggle<CR>
