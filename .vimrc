@@ -1,4 +1,4 @@
-set nocompatible
+
 
 let mapleader=","
 
