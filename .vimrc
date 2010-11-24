@@ -240,3 +240,20 @@ au FileType php set omnifunc=phpcomplete#CompletePHP
 "Quelques raccourcis pour symfony
 nmap <F9> :! php symfony cc<CR>
 nmap <F10> :! php symfony doctrine:build --all --no-confirmation<CR>
+
+
+"Compilation automatique des fichiers js avec closure compiler de google
+"Nécessite sun-java6-jre qui se trouve dans les dépots non-free de debian
+"Récupérer et décompresser le compiler depuis http://closure-compiler.googlecode.com/files/compiler-latest.zip
+"Changer let cpa si besoin
+autocmd BufWriteCmd *.js :call CompileJS()
+function! CompileJS()
+  if &modified
+    write
+    let fn = expand('%:p')
+    let pn = expand('%:p:h')
+    let fnm = expand('%:r.js')
+    let cpa = '/home/bpizzi/closure-compiler/compiler.jar'
+    execute "! java -jar " . cpa . " --js=" . fn . " --js_output_file=" . fnm . ".min.js"
+  endif
+endfunction
