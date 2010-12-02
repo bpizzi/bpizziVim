@@ -257,3 +257,9 @@ function! CompileJS()
     execute "! java -jar " . cpa . " --js=" . fn . " --js_output_file=" . fnm . ".min.js"
   endif
 endfunction
+
+"Raccourcis pour lancer le correcteur orthographique
+map <Leader>se :setlocal spell spelllang=en_us<CR>
+map <Leader>sf :setlocal spell spelllang=fr_fr<CR>
+map <Leader>sn :setlocal nospell<CR> 
+
