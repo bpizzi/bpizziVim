@@ -99,6 +99,7 @@ filetype plugin on
 filetype indent on
 syntax on
 
+
 set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
 set ch=2
 
@@ -240,7 +241,7 @@ au FileType php set omnifunc=phpcomplete#CompletePHP
 "Quelques raccourcis pour symfony
 nmap <F9> :! php symfony cc<CR>
 nmap <F10> :! php symfony doctrine:build --all --no-confirmation<CR>
-
+nmap <F11> :! php symfony propel:build --all --no-confirmation<CR>
 
 "Compilation automatique des fichiers js avec closure compiler de google
 "Nécessite sun-java6-jre qui se trouve dans les dépots non-free de debian
@@ -263,3 +264,5 @@ map <Leader>se :setlocal spell spelllang=en_us<CR>
 map <Leader>sf :setlocal spell spelllang=fr_fr<CR>
 map <Leader>sn :setlocal nospell<CR> 
 
+"Déclenche la syntax jinja pour els fichiers .twig
+au BufNewFile,BufRead *.twig set filetype=jinjahtml
