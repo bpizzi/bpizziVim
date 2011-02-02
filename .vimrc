@@ -57,7 +57,7 @@ set clipboard=unnamed
 set ch=2
 
 " set visual bell -- i hate that damned beeping
-set vb
+" set vb
 
 " Set the status line the way i like it
 set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
@@ -120,16 +120,19 @@ set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 " no toolbars
 set guioptions=ac
 
+set t_Co=256
 if !has("gui_running") 
-	set t_Co=256
+	colorscheme wombat
+else
+	colorscheme xoria256
 endif
 if has("win32")
 	set guifont=Consolas:h9
 endif
 if has("gui_running")
-	set lines=999 columns=999
+   set lines=40 columns=200
 endif
-colorscheme xoria256
+set guifont=Deja\ Vu\ Sans\ Mono\ Normal\ 9
 
 """""""""""""""""""""""""""""""
 " IDE LIKE
