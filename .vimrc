@@ -257,7 +257,7 @@ function! CompileJS()
     let fn = expand('%:p')
     let pn = expand('%:p:h')
     let fnm = expand('%:r.js')
-    let cpa = '/home/bpizzi/closure-compiler/compiler.jar'
+    let cpa = '/home/bpizzi/Bin/compiler.jar'
     execute "! java -jar " . cpa . " --js=" . fn . " --js_output_file=" . fnm . ".min.js"
   endif
 endfunction
