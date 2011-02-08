@@ -121,11 +121,7 @@ set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 set guioptions=ac
 
 set t_Co=256
-if !has("gui_running") 
-	colorscheme wombat
-else
-	colorscheme xoria256
-endif
+colorscheme xoria256
 if has("win32")
 	set guifont=Consolas:h9
 endif
