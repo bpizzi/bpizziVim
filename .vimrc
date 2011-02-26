@@ -43,11 +43,9 @@ set copyindent    " copy the previous indentation on autoindenting
 set shiftwidth=4  " number of spaces to use for autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 
-" montrer la commande en cours de frappe dans la barre d'état
-set showcmd
+set showcmd " montrer la commande en cours de frappe dans la barre d'état
 
-" Voir les numéros de ligne
-set number
+set number  " Voir les numéros de ligne
 
 " Copier/coller depuis le presse papier de windows
 set clipboard=unnamed
@@ -264,3 +262,7 @@ map <Leader>sn :setlocal nospell<CR>
 
 "Déclenche la syntax jinja pour els fichiers .twig
 au BufNewFile,BufRead *.twig set filetype=jinjahtml
+
+"Naviguera dans les buffers avec les fleches
+map <right> :bn<cr>
+map <left> :bp<cr>
