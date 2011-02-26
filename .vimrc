@@ -1,5 +1,4 @@
 
-
 let mapleader=","
 
 
@@ -246,7 +245,7 @@ nmap <F11> :! php symfony propel:build --all --no-confirmation<CR>
 "Nécessite sun-java6-jre qui se trouve dans les dépots non-free de debian
 "Récupérer et décompresser le compiler depuis http://closure-compiler.googlecode.com/files/compiler-latest.zip
 "Changer let cpa si besoin
-autocmd BufWriteCmd *.js :call CompileJS()
+"autocmd BufWriteCmd *.js :call CompileJS()
 function! CompileJS()
   if &modified
     write
