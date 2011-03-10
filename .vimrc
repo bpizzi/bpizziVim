@@ -266,3 +266,6 @@ au BufNewFile,BufRead *.twig set filetype=jinjahtml
 "Naviguera dans les buffers avec les fleches
 map <right> :bn<cr>
 map <left> :bp<cr>
+
+"Sélectionner le dernier texte collé
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
