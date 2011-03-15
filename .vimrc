@@ -1,7 +1,4 @@
-
 let mapleader=","
-
-
 
 " GESTION DES PLUGINS {{{
 runtime! autoload/pathogen.vim
@@ -123,7 +120,8 @@ if has("win32")
 	set guifont=Consolas:h9
 endif
 if has("gui_running")
-   set lines=40 columns=200
+	set lines=40 columns=200
+	set transparency=5 
 endif
 set guifont=Deja\ Vu\ Sans\ Mono\ Normal\ 9
 
@@ -245,14 +243,14 @@ nmap <F11> :! php symfony propel:build --all --no-confirmation<CR>
 "Changer let cpa si besoin
 "autocmd BufWriteCmd *.js :call CompileJS()
 function! CompileJS()
-  if &modified
-    write
-    let fn = expand('%:p')
-    let pn = expand('%:p:h')
-    let fnm = expand('%:r.js')
-    let cpa = '/home/bpizzi/Bin/compiler.jar'
-    execute "! java -jar " . cpa . " --js=" . fn . " --js_output_file=" . fnm . ".min.js"
-  endif
+	if &modified
+		write
+		let fn = expand('%:p')
+		let pn = expand('%:p:h')
+		let fnm = expand('%:r.js')
+		let cpa = '/home/bpizzi/Bin/compiler.jar'
+		execute "! java -jar " . cpa . " --js=" . fn . " --js_output_file=" . fnm . ".min.js"
+	endif
 endfunction
 
 "Raccourcis pour lancer le correcteur orthographique
@@ -263,9 +261,21 @@ map <Leader>sn :setlocal nospell<CR>
 "Déclenche la syntax jinja pour els fichiers .twig
 au BufNewFile,BufRead *.twig set filetype=jinjahtml
 
+"Sélectionner le dernier texte collé
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+"intervertir ' et `
+nnoremap ' `
+nnoremap ` '
+
+" visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+
+" JE SUIS UN DEGLINGO MOI, J'UTILISE PAS LES FLECHES
+map <up> :wq!<cr>
+map <down> :wq!<cr>
 "Naviguera dans les buffers avec les fleches
 map <right> :bn<cr>
 map <left> :bp<cr>
 
-"Sélectionner le dernier texte collé
-nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
