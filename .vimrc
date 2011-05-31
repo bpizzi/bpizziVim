@@ -50,11 +50,12 @@ set clipboard=unnamed
 " Make command line two lines high                       	
 set ch=2
 
-" set visual bell -- i hate that damned beeping
-" set vb
+"set visualbell
+"set vb t_vb=10
+
 
 " Set the status line the way i like it
-set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B] 
 
 " tell VIM to always put a status line in, even if there is only one window
 set laststatus=2
@@ -121,9 +122,8 @@ if has("win32")
 endif
 if has("gui_running")
 	set lines=40 columns=200
-	set transparency=5 
 endif
-set guifont=Deja\ Vu\ Sans\ Mono\ Normal\ 9
+set guifont=Inconsolata 
 
 """""""""""""""""""""""""""""""
 " IDE LIKE
@@ -279,3 +279,5 @@ map <down> :wq!<cr>
 map <right> :bn<cr>
 map <left> :bp<cr>
 
+"command-t config
+let g:CommandTMaxHeight = 15
