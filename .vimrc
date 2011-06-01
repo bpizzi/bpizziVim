@@ -281,3 +281,6 @@ map <left> :bp<cr>
 
 "command-t config
 let g:CommandTMaxHeight = 15
+
+"Goes one split down the one spli right: usually makes you go to the main windows
+map <leader>w jl
