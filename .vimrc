@@ -121,7 +121,7 @@ if has("win32")
 	set guifont=Consolas:h9
 endif
 if has("gui_running")
-	set lines=40 columns=200
+	"set lines=40 columns=200
 endif
 set guifont=Inconsolata 
 
@@ -284,3 +284,15 @@ let g:CommandTMaxHeight = 15
 
 "Goes one split down the one spli right: usually makes you go to the main windows
 map <leader>w jl
+
+"Needs pman: pear install doc.php.net/pman
+"Open pman for the keyword under the cursor
+function! OpenPhpFunction (keyword)
+  exe 'split'
+  exe 'enew'
+  exe "set buftype=nofile"
+  exe "setlocal noswapfile"
+  exe 'r!pman '.a:keyword
+  exe 'norm gg'
+endfunction
+au FileType php map K :call OpenPhpFunction('<C-r><C-w>')<CR>
