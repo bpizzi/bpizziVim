@@ -280,7 +280,9 @@ map <right> :bn<cr>
 map <left> :bp<cr>
 
 "command-t config
-let g:CommandTMaxHeight = 15
+let g:CommandTMaxHeight = 30
+"In Symfony2 projets: let CommandT ignore app/cache and app/logs 
+set wildignore+=app/cache/**,app/logs/**,vendor/**
 
 "Goes one split down the one spli right: usually makes you go to the main windows
 map <leader>w jl
