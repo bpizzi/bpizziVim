@@ -260,6 +260,7 @@ map <Leader>sn :setlocal nospell<CR>
 
 "Déclenche la syntax jinja pour els fichiers .twig
 au BufNewFile,BufRead *.twig set filetype=jinjahtml
+au BufNewFile,BufRead *.jinja set filetype=jinjahtml
 
 "Sélectionner le dernier texte collé
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
