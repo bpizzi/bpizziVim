@@ -1,11 +1,8 @@
 " Modeline and Notes {
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 "
-"	This is the personal .vimrc file of Steve Francia.
-"	While much of it is beneficial for general use, I would
-"	recommend picking out the parts you want and understand.
-"
-"	You can find me at http://spf13.com
+" Bpizzi's .vimrc - https://github.com/bpizzi/bpizziVim
+" Credits: hugely inspired by https://github.com/spf13/spf13-vim, thanks Steve!
 " }
 
 " Environment {
@@ -49,7 +46,7 @@
         Bundle 'bpizzi/myvimcolors'
         Bundle 'vim-scripts/bufexplorer.zip'
         Bundle 'vim-scripts/ShowMarks'
-	Bundle 'sickill/vim-pasta'
+        Bundle 'sickill/vim-pasta'
 
     " General Programming
         Bundle 'garbas/vim-snipmate'
@@ -67,7 +64,6 @@
         Bundle 'othree/html5.vim'
 
     " Python
-        "Bundle 'bloveridge/pyflakes-vim'
         Bundle 'generalov/pyflakes-vim'
         Bundle 'fs111/pydoc.vim'
         Bundle 'python.vim'
@@ -253,22 +249,21 @@
 	" For when you forget to sudo.. Really Write the file.
 	cmap w!! w !sudo tee % >/dev/null
 
-    " Echanger buffer courant avec l'alternate
+    "Exchange current with alternate buffer
     nmap <silent> <leader>a :b#<cr>
 
-    "Edition rapide de .vimrc
+    "Quick edit/source .vimrc
     nmap <silent> <leader>ve :e $MYVIMRC<cr>
     nmap <silent> <leader>vs :so $MYVIMRC<cr>
 
-    "Raccourcis pour lancer le correcteur orthographique
+    "Spell checking
     map <Leader>se :setlocal spell spelllang=en_us<CR>
     map <Leader>sf :setlocal spell spelllang=fr_fr<CR>
     map <Leader>sn :setlocal nospell<CR>
 
-    " JE SUIS UN DEGLINGO MOI, J'UTILISE PAS LES FLECHES
+    "They say DON'T USE ARROW KEYS, so here we go...
     map <up> :wq!<cr>
     map <down> :wq!<cr>
-    " Naviguer dans les buffers avec les fleches
     map <right> :bn<cr>
     map <left> :bp<cr>
 
