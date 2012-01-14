@@ -18,7 +18,7 @@
 		  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 		endif
 	" }
-    " 
+        " 
 	" Setup Bundle Support {
 	" The next two lines ensure that the ~/.vim/bundle/ system works
         set rtp+=~/.vim/bundle/vundle
@@ -94,7 +94,7 @@
 	"set autochdir 				" always switch to the current file directory.. Messes with some plugins, best left commented out
 	" not every vim is compiled with this, use the following line instead
 	" If you use command-t plugin, it conflicts with this, comment it out.
-     "autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+        "autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 	scriptencoding utf-8
 
 	" set autowrite                  " automatically write a file when leaving a modified buffer
@@ -103,7 +103,8 @@
 	set virtualedit=onemore 	   	" allow for cursor beyond last character
 	set history=1000  				" Store a ton of history (default is 20)
 	set nospell 		 	        	" spell checking on
-    set hidden
+        set hidden
+        au FileType html.twig set filetype=htmltwig
 
 	" Setting up the directories {
 		set backup 						" backups are nice ...
@@ -115,17 +116,17 @@
 
 " Vim UI {
 	color desert   	       		" load a colorscheme
-	set tabpagemax=15 				" only show 15 tabs
+	set tabpagemax=15 		" only show 15 tabs
 	set showmode                   	" display the current mode
 
-	set cursorline  				" highlight current line
+	set cursorline  		" highlight current line
 	hi cursorline guibg=#333333 	" highlight bg color of current line
 	hi CursorColumn guibg=#333333   " highlight cursor
 
 	if has('cmdline_info')
-		set ruler                  	" show the ruler
-		set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
-		set showcmd                	" show partial commands in status line and
+		set ruler                  				" show the ruler
+		set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) 	" a ruler on steroids
+		set showcmd                				" show partial commands in status line and
 									" selected characters/lines in visual mode
 	endif
 
@@ -133,18 +134,18 @@
         set laststatus=2
 
 		" Broken down into easily includeable segments
-		set statusline=%<%f\    " Filename
-		set statusline+=%w%h%m%r " Options
-		set statusline+=%{fugitive#statusline()} "  Git Hotness
-		set statusline+=\ [%{&ff}/%Y]            " filetype
-		set statusline+=\ [%{getcwd()}]          " current dir
-		"set statusline+=\ [A=\%03.3b/H=\%02.2B] " ASCII / Hexadecimal value of char
-		set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+		set statusline=%<%f\    			" Filename
+		set statusline+=%w%h%m%r 			" Options
+		set statusline+=%{fugitive#statusline()} 	"  Git Hotness
+		set statusline+=\ [%{&ff}/%Y]            	" filetype
+		set statusline+=\ [%{getcwd()}]          	" current dir
+		"set statusline+=\ [A=\%03.3b/H=\%02.2B] 	" ASCII / Hexadecimal value of char
+		set statusline+=%=%-14.(%l,%c%V%)\ %p%%  	" Right aligned file nav info
 	endif
 
 	set backspace=indent,eol,start	" backspace for dummys
 	set linespace=0					" No extra spaces between rows
-	set nu							" Line numbers on
+	set nu						" Line numbers on
 	set showmatch					" show matching brackets/parenthesis
 	set incsearch					" find as you type search
 	set hlsearch					" highlight search terms
@@ -152,14 +153,14 @@
 	set ignorecase					" case insensitive search
 	set smartcase					" case sensitive when uc present
 	set wildmenu					" show list instead of just completing
-	set wildmode=list:longest,full	" command <Tab> completion, list matches, then longest common part, then all.
-	set whichwrap=b,s,h,l,<,>,[,]	" backspace and cursor keys wrap to
+	set wildmode=list:longest,full			" command <Tab> completion, list matches, then longest common part, then all.
+	set whichwrap=b,s,h,l,<,>,[,]			" backspace and cursor keys wrap to
 	set scrolljump=5 				" lines to scroll when cursor leaves screen
 	set scrolloff=3 				" minimum lines to keep above and below cursor
 	set foldenable  				" auto fold code
 	set gdefault					" the /g flag on :s substitutions by default
     set list
-    set listchars=tab:,.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
+    set listchars=tab:,.,trail:.,extends:#,nbsp:. 	" Highlight problematic whitespace
 
 " }
 
@@ -167,12 +168,12 @@
 	set nowrap                     	" wrap long lines
 	set autoindent                 	" indent at the same level of the previous line
 	set shiftwidth=4               	" use indents of 4 spaces
-	set expandtab 	  	     		" tabs are spaces, not tabs
-	set tabstop=4 					" an indentation every four columns
-	set softtabstop=4 				" let backspace delete indent
-	"set matchpairs+=<:>            	" match, to be used with % 
+	set expandtab 	  	     	" tabs are spaces, not tabs
+	set tabstop=4 			" an indentation every four columns
+	set softtabstop=4 		" let backspace delete indent
+	"set matchpairs+=<:>            " match, to be used with % 
 	set pastetoggle=<F>          	" pastetoggle (sane indentation on pastes)
-	"set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
+	"set comments=sl:/*,mb:*,elx:*/ " auto format comment blocks
 	" Remove trailing whitespaces and ^M chars
 	autocmd FileType c,cpp,java,php,js,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 " }
@@ -183,8 +184,8 @@
 	"location
 	let mapleader = ','
 
-    " Making it so ; works like : for commands. Saves typing and eliminates :W style typos due to lazy holding shift.
-    nnoremap ; :
+    	" Making it so ; works like : for commands. Saves typing and eliminates :W style typos due to lazy holding shift.
+    	nnoremap ; :
 
 
 	" Easier moving in tabs and windows
@@ -194,9 +195,9 @@
 	map <C-H> <C-W>h<C-W>_
 	map <C-K> <C-W>k<C-W>_
 
-    " Wrapped lines goes down/up to next row, rather than next line in file.
-    nnoremap j gj
-    nnoremap k gk
+    	" Wrapped lines goes down/up to next row, rather than next line in file.
+    	nnoremap j gj
+    	nnoremap k gk
 
 	" The following two lines conflict with moving to top and bottom of the
 	" screen
@@ -226,13 +227,13 @@
 	nmap <leader>f8 :set foldlevel=8<CR>
 	nmap <leader>f9 :set foldlevel=9<CR>
 
-    "clearing highlighted search
-    "nmap <silent> <leader>/ :nohlsearch<CR>
-    nmap <silent> <leader>n :set invhls<CR>:set hls?<CR>
+    	"clearing highlighted search
+    	"nmap <silent> <leader>/ :nohlsearch<CR>
+    	nmap <silent> <leader>n :set invhls<CR>:set hls?<CR>
 
 	" Shortcuts
 	" Change Working Directory to that of the current file
-    cmap cwd lcd %:p:h
+    	cmap cwd lcd %:p:h
 	cmap cd. lcd %:p:h
 
 	" visual shifting (does not exit Visual mode)
@@ -249,29 +250,29 @@
 	" For when you forget to sudo.. Really Write the file.
 	cmap w!! w !sudo tee % >/dev/null
 
-    "Exchange current with alternate buffer
-    nmap <silent> <leader>a :b#<cr>
+    	"Exchange current with alternate buffer
+    	nmap <silent> <leader>a :b#<cr>
 
-    "Quick edit/source .vimrc
-    nmap <silent> <leader>ve :e $MYVIMRC<cr>
-    nmap <silent> <leader>vs :so $MYVIMRC<cr>
+    	"Quick edit/source .vimrc
+    	nmap <silent> <leader>ve :e $MYVIMRC<cr>
+    	nmap <silent> <leader>vs :so $MYVIMRC<cr>
 
-    "Spell checking
-    map <Leader>se :setlocal spell spelllang=en_us<CR>
-    map <Leader>sf :setlocal spell spelllang=fr_fr<CR>
-    map <Leader>sn :setlocal nospell<CR>
+    	"Spell checking
+   	 map <Leader>se :setlocal spell spelllang=en_us<CR>
+   	 map <Leader>sf :setlocal spell spelllang=fr_fr<CR>
+   	 map <Leader>sn :setlocal nospell<CR>
 
-    "They say DON'T USE ARROW KEYS, so here we go...
-    map <up> :wq!<cr>
-    map <down> :wq!<cr>
-    map <right> :bn<cr>
-    map <left> :bp<cr>
+    	"They say DON'T USE ARROW KEYS, so here we go...
+    	map <up> :wq!<cr>
+    	map <down> :wq!<cr>
+    	map <right> :bn<cr>
+    	map <left> :bp<cr>
 
-    "Goes one split down the one spli right: usually makes you go to the main windows
-    map <leader>w <C-j><C-l>
+    	"Goes one split down the one spli right: usually makes you go to the main windows
+    	map <leader>w <C-j><C-l>
 
-    " Close current window
-    noremap <silent> <C-C> :close<cr>
+    	" Close current window
+    	noremap <silent> <C-C> :close<cr>
 " }
 
 " Plugins {
@@ -289,20 +290,20 @@
 	" Supertab {
 		let g:SuperTabDefaultCompletionType = "context"
 		let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-        "let g:SuperTabContextDefaultCompletionType = "<c-x><c-p>"
-        "let g:SuperTabMappingForward = '<c-space>'
-        "let g:SuperTabMappingBackward = '<s-c-space>'
+        	"let g:SuperTabContextDefaultCompletionType = "<c-x><c-p>"
+        	"let g:SuperTabMappingForward = '<c-space>'
+        	"let g:SuperTabMappingBackward = '<s-c-space>'
 	" }
 
 	" Misc {
 		:map <C-F10> <Esc>:vsp<CR>:VTree<CR>
 		" map Control + F10 to Vtree
 
-        noremap <leader><F5> :CheckSyntax<cr>
+        	noremap <leader><F5> :CheckSyntax<cr>
 		let g:checksyntax_auto = 1
 
 		"comment out line(s) in visual mode -RB: If you do this, you can't
-        "switch sides of the comment block in visual mode.
+        	"switch sides of the comment block in visual mode.
 		"vmap  o  :call NERDComment(1, 'toggle')<CR>
 		let g:NERDShutUp=1
 
@@ -324,23 +325,23 @@
 	" }
 
 	" Command-t {
-        let g:CommandTSearchPath = $HOME . '/Projects'
-        let g:CommandTMaxHeight = 30
-        "In Symfony2 projets: let CommandT ignore app/cache and app/logs
-        set wildignore+=app/cache/**,app/logs/**,vendor/**
+        	let g:CommandTSearchPath = $HOME . '/Projects'
+        	let g:CommandTMaxHeight = 30
+        	"In Symfony2 projets: let CommandT ignore app/cache and app/logs
+        	set wildignore+=app/cache/**,app/logs/**,vendor/**
 	" }
 
 	" OmniComplete {
-        if has("autocmd") && exists("+omnifunc")
-            autocmd Filetype *
-                \if &omnifunc == "" |
-                \setlocal omnifunc=syntaxcomplete#Complete |
-                \endif
-        endif
+        	if has("autocmd") && exists("+omnifunc")
+        	    autocmd Filetype *
+         	       \if &omnifunc == "" |
+         	       	\setlocal omnifunc=syntaxcomplete#Complete |
+        	       \endif
+      		  endif
 
 		" Popup menu hightLight Group
 		"highlight Pmenu	ctermbg=13	guibg=DarkBlue
-        "highlight PmenuSel	ctermbg=7	guibg=DarkBlue		guifg=LightBlue
+        	"highlight PmenuSel	ctermbg=7	guibg=DarkBlue		guifg=LightBlue
 		"highlight PmenuSbar ctermbg=7	guibg=DarkGray
 		"highlight PmenuThumb			guibg=Black
 
@@ -356,8 +357,8 @@
 		inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
 		inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
 
-        " and make sure that it doesn't break supertab
-        let g:SuperTabCrMapping = 0
+        	" and make sure that it doesn't break supertab
+        	let g:SuperTabCrMapping = 0
 
 		" automatically open and close the popup menu / preview window
 		au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
@@ -376,18 +377,18 @@
 		au FileType * let b:delimitMate_autoclose = 1
 
 		" If using html auto complete (complete closing tag)
-        au FileType xml,html,xhtml let b:delimitMate_matchpairs = "(:),[:],{:}"
+        	au FileType xml,html,xhtml let b:delimitMate_matchpairs = "(:),[:],{:}"
 	" }
 
 	" AutoCloseTag {
         " Make it so AutoCloseTag works for xml and xhtml files as well
-        au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
-        "nmap <leader>ac <Plug>ToggleAutoCloseMappings
+        	au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
+        	"nmap <leader>ac <Plug>ToggleAutoCloseMappings
 	" }
 
 	" SnipMate {
 		" Setting the author var
-        " If forking, please overwrite in your .vimrc.local file
+        	" If forking, please overwrite in your .vimrc.local file
 		let g:snips_author = 'Steve Francia <steve.francia@gmail.com>'
 		" Shortcut for reloading snippets, useful when developing
 		nnoremap ,smr <esc>:exec ReloadAllSnippets()<cr>
@@ -435,6 +436,7 @@
 			"nmap <leader>vl :VCSLog<CR>
 			"nmap <leader>vu :VCSUpdate<CR>
 		" }
+
 		" php-doc commands {
 			nmap <leader>pd :call PhpDocSingle()<CR>
 			vmap <leader>pd :call PhpDocRange()<CR>
@@ -475,10 +477,10 @@
 " GUI Settings {
 	" GVIM- (here instead of .gvimrc)
 	if has('gui_running')
-        color xoria256
-        set t_Co=256
-        set guioptions=ac
-        set guifont=Inconsolata 
+        	color xoria256
+	        set t_Co=256
+        	set guioptions=ac
+        	set guifont=Inconsolata 
 		"set lines=40               	" 40 lines of text instead of 24,
 		"set transparency=5          " Make the window slightly transparent
 	else
